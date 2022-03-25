@@ -6,9 +6,9 @@ int n, cnt, r[maxn], dp[maxn][2];
 bool vis[maxn];
 struct Edge
 {
-	int to, w, next;//终点，边权，同起点的上一条边的编号
+	int to, next;//终点，同起点的上一条边的编号
 } edge[maxn];//边集
-int head[maxn];// head[i],表示以i为起点的第一条边在边集数组的位置（编号）
+int head[maxn];//表示以i为起点的第一条边在边集数组的位置（编号）
 
 void init() //初始化
 {
