@@ -1,26 +1,25 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-const int maxn = 6e3 + 5;			 //±ßÊı
-int n, m, cnt, r[maxn], dp[maxn][2]; // n¸öµã£¬mÌõ±ß
+const int maxn = 6e3 + 5;//è¾¹æ•°
+int n, m, cnt, r[maxn], dp[maxn][2];//nä¸ªç‚¹ï¼Œmæ¡è¾¹
 bool vis[maxn];
 struct Edge
 {
-	int to, w, next; //ÖÕµã£¬±ßÈ¨£¬Í¬ÆğµãµÄÉÏÒ»Ìõ±ßµÄ±àºÅ
-} edge[maxn];		 //±ß¼¯
-int head[maxn];		 // head[i],±íÊ¾ÒÔiÎªÆğµãµÄµÚÒ»Ìõ±ßÔÚ±ß¼¯Êı×éµÄÎ»ÖÃ£¨±àºÅ£©
+	int to, w, next;//ç»ˆç‚¹ï¼Œè¾¹æƒï¼ŒåŒèµ·ç‚¹çš„ä¸Šä¸€æ¡è¾¹çš„ç¼–å·
+} edge[maxn];//è¾¹é›†
+int head[maxn];// head[i],è¡¨ç¤ºä»¥iä¸ºèµ·ç‚¹çš„ç¬¬ä¸€æ¡è¾¹åœ¨è¾¹é›†æ•°ç»„çš„ä½ç½®ï¼ˆç¼–å·ï¼‰
 
-void init() //³õÊ¼»¯
+void init() //åˆå§‹åŒ–
 {
-	for (int i = 0; i <= n; i++) head[i] = -1;
-	cnt = 0;
+	for (int i = 1; i <= n; i++) head[i] = -1;
 }
 
-void add(int u, int v) //¼Ó±ß£¬uÆğµã£¬vÖÕµã
+void add(int u, int v) //åŠ è¾¹ï¼Œuèµ·ç‚¹ï¼Œvç»ˆç‚¹
 {
-	edge[cnt].to = v;		  //ÖÕµã
-	edge[cnt].next = head[u]; //ÒÔuÎªÆğµãÉÏÒ»Ìõ±ßµÄ±àºÅ£¬Ò²¾ÍÊÇÓëÕâ¸ö±ßÆğµãÏàÍ¬µÄÉÏÒ»Ìõ±ßµÄ±àºÅ
-	head[u] = cnt++;		  //¸üĞÂÒÔuÎªÆğµãÉÏÒ»Ìõ±ßµÄ±àºÅ
+	edge[cnt].to = v;//ç»ˆç‚¹
+	edge[cnt].next = head[u]; //ä»¥uä¸ºèµ·ç‚¹ä¸Šä¸€æ¡è¾¹çš„ç¼–å·ï¼Œä¹Ÿå°±æ˜¯ä¸è¿™ä¸ªè¾¹èµ·ç‚¹ç›¸åŒçš„ä¸Šä¸€æ¡è¾¹çš„ç¼–å·
+	head[u] = cnt++;//æ›´æ–°ä»¥uä¸ºèµ·ç‚¹ä¸Šä¸€æ¡è¾¹çš„ç¼–å·
 }
 
 void dfs(int now)
