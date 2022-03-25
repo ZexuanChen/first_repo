@@ -2,7 +2,7 @@
 #include <algorithm>
 using namespace std;
 const int maxn = 6e3 + 5;//边数
-int n, m, cnt, r[maxn], dp[maxn][2];//n个点，m条边
+int n, cnt, r[maxn], dp[maxn][2];
 bool vis[maxn];
 struct Edge
 {
