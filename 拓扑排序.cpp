@@ -22,12 +22,12 @@ void add_edge(int u, int v)
 
 void topSort()
 {
-	priority_queue<int, vector<int>, greater<int> > q;
+    priority_queue<int, vector<int>, greater<int> > q;
     for (int i=1; i<=n; i++) if (in[i]==0) q.push(i);
     
-    vector<int> ans; //ansÎªÍØÆËĞòÁĞ 
+    vector<int> ans; //ansä¸ºæ‹“æ‰‘åºåˆ— 
     while(!q.empty()) {
-        int p = q.top(); q.pop(); //Ñ¡Ò»¸öÈë¶ÈÎª0µÄµã£¬³ö¶ÓÁĞ 
+        int p = q.top(); q.pop(); //é€‰ä¸€ä¸ªå…¥åº¦ä¸º0çš„ç‚¹ï¼Œå‡ºé˜Ÿåˆ— 
         ans.push_back(p);
         for(int i=head[p]; i != -1; i=edge[i].next) {
             int j=edge[i].to;
@@ -40,12 +40,11 @@ void topSort()
         for(int i=0; i<ans.size(); i++) printf("%d ", ans[i]);
         printf("\n");
     }
-    else printf("No Answer!\n");   //  ans ÖĞµÄ³¤¶ÈÓën²»ÏàµÈ£¬¾ÍËµÃ÷ÎŞÍØÆËĞòÁĞ
 }
 
 int main()
 {
-	//½¨Ê÷²¢Í³¼ÆÈë¶È
+	//å»ºæ ‘å¹¶ç»Ÿè®¡å…¥åº¦
 	init();
 	topSort();
 }
