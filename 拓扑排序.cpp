@@ -44,7 +44,10 @@ void topSort()
 
 int main()
 {
-	//建树并统计入度
+	/*建树并统计入度
+	code here...
+	
+	*/
 	init();
 	topSort();
 }
